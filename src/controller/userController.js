@@ -19,8 +19,3 @@ exports.findOne = (req, res) =>{
   });
 }
 
-
-exports.crate = (req, res) => {
-  const data = req.body;
-  // hago update contra mongo.
-}

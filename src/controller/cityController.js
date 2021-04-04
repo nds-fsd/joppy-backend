@@ -62,3 +62,4 @@ exports.delete = (req, res) => {
       res.status(500).json({message: "city not found"});
     });
     }
+    

@@ -1,4 +1,4 @@
-const { Offer } = require("./mongo");
+const { Offer } = require("../mongo");
 
 exports.createOffer = (req, res) => {
   const data = req.body;

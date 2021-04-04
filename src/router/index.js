@@ -1,8 +1,10 @@
 const express = require("express");
 const { OfferRouter } = require("./offerRouter");
-const { UserRouter } = require("./userRouter");
+const { CityRouter } = require("./cityRouter");
+const { RoleRouter } = require("./roleRouter");
 const appRouter = express.Router();
 
-appRouter.use("/user", UserRouter);
+appRouter.use("/city", CityRouter);
+appRouter.use("/role", RoleRouter);
 appRouter.use("/offer", OfferRouter);
 module.exports = appRouter;

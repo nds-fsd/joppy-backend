@@ -1,7 +1,9 @@
-const UserController = require("./userController");
+const CityController = require("./cityController");
+const RoleController = require("./roleController");
 const OfferController = require("./offerController");
 
 module.exports = {
-  UserController,
+  CityController,
   OfferController,
-};
+  RoleController
+}

@@ -7,4 +7,6 @@ const appRouter = express.Router();
 appRouter.use("/city", CityRouter);
 appRouter.use("/role", RoleRouter);
 appRouter.use("/offer", OfferRouter);
+appRouter.use("/user", OfferRouter);
+
 module.exports = appRouter;

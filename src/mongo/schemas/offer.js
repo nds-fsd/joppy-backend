@@ -8,10 +8,10 @@ const schema = new mongoose.Schema(
     companyName: { type: String, required: true },
     title: { type: String, required: true },
     salary: { type: Number, required: true },
-    city: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "City" },
-    roles: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Roles" },
+    city: { type: mongoose.Schema.Types.ObjectId, ref: "City" },
+    roles: { type: mongoose.Schema.Types.ObjectId, ref: "Roles" },
     description: { type: String, required: true },
-    companyInfo: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Company" },
+    companyInfo: { type: mongoose.Schema.Types.ObjectId, ref: "Company" },
   },
   { timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }
 );

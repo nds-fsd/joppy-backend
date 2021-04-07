@@ -38,7 +38,9 @@ exports.updateOffer = (req, res) => {
 
   Offer.findByIdAndUpdate(id, data)
     .then((offer) => {
-      res.status(200).json({ message: `Offer with id: ${offer._id} has been modified` });
+      res
+        .status(200)
+        .json({ message: `Offer with id: ${offer._id} has been modified` });
     })
     .catch((error) => {
       res.status(500).json(error);
@@ -49,7 +51,9 @@ exports.deleteOffer = (req, res) => {
   const id = req.params.id;
   Offer.findByIdAndRemove(id)
     .then((offer) => {
-      res.status(200).json({ message: `Offer with id: ${offer._id} has been deleted` });
+      res
+        .status(200)
+        .json({ message: `Offer with id: ${offer._id} has been deleted` });
     })
     .catch((error) => {
       res.status(500).json(error);

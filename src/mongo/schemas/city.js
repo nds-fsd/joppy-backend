@@ -1,12 +1,13 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
-const schema = new mongoose.Schema({
-	name: { type: String, required: true, unique: true},
-}, {timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' }});
+const schema = new mongoose.Schema(
+  {
+    name: { type: String, required: true, unique: true },
+  },
+  { timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }
+);
 
-const City = mongoose.model('City', schema);
-
-
+const City = mongoose.model("City", schema);
 
 module.exports = City;

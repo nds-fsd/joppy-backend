@@ -5,11 +5,11 @@ cambiaré en caso de que se elijan nombres distintos*/
 
 const schema = new mongoose.Schema(
   {
-    companyName: { type: String, required: true },
     title: { type: String, required: true },
     salary: { type: Number, required: true },
-    city: { type: mongoose.Schema.Types.ObjectId, ref: "City" },
-    roles: { type: mongoose.Schema.Types.ObjectId, ref: "Roles" },
+    city: [{ type: mongoose.Schema.Types.ObjectId, ref: "City" }],
+    roles: [{ type: mongoose.Schema.Types.ObjectId, ref: "Roles" }],
+    skills: [{ type: mongoose.Schema.Types.ObjectId, ref: "Skills" }],
     description: { type: String, required: true },
     companyInfo: { type: mongoose.Schema.Types.ObjectId, ref: "Company" },
   },

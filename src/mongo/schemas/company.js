@@ -4,8 +4,10 @@ const bcrypt = require("bcrypt");
 const schema = new mongoose.Schema(
   {
     name: { type: String, required: true },
+    logo: { type: String, required: true },
     type: { type: String, required: true },
     description: { type: String, required: true, unique: true },
+    skills: [{ type: mongoose.Schema.Types.ObjectId, ref: "Skills" }],
     location: { type: String, required: true },
   },
   { timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }

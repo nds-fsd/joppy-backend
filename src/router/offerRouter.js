@@ -7,6 +7,8 @@ OfferRouter.post("/", OfferController.createOffer);
 
 OfferRouter.get("/", OfferController.findAllOffers);
 
+OfferRouter.get("/ids", OfferController.findAllOfferIds);
+
 OfferRouter.get("/:id", OfferController.findOneOffer);
 
 OfferRouter.post("/search", OfferController.searchOffer);

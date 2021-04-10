@@ -21,10 +21,22 @@ exports.findAllOffers = (req, res) => {
     });
 };
 
+exports.findAllOfferIds = (req, res) => {
+  Offer.find({}, "_id")
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+    });
+};
+
 exports.findOneOffer = (req, res) => {
   const id = req.params.id;
   Offer.findById(id)
     .populate("city")
+    .populate("roles")
+    .populate("skills")
     .populate("companyInfo")
     .exec()
     .then((offer) => {
@@ -32,6 +44,7 @@ exports.findOneOffer = (req, res) => {
     })
     .catch((error) => {
       res.status(500).json(error);
+      console.log(error);
     });
 };
 

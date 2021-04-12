@@ -1,5 +1,5 @@
 const express = require('express');
-const {RoleController} = require('../role')
+const {RoleController} = require('../controller')
 
 const RoleRouter = express.Router();
 

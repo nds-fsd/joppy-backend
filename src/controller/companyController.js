@@ -13,8 +13,15 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
   Company.findById(id)
-    .then((data) => {
-      res.status(200).json(data);
+    .populate("name")
+    .populate("logo")
+    .populate("type")
+    .populate("description")
+    .populate("skills")
+    .populate("location")
+    .exec()
+    .then((company) => {
+      res.status(200).json(company);
     })
     .catch((error) => {
       res.status(500).json(error);

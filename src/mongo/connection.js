@@ -1,3 +1,5 @@
+/** @format */
+
 const mongoose = require("mongoose");
 require("dotenv").config();
 const databaseHost = process.env.DATABASE_HOST || "localhost";
@@ -8,19 +10,19 @@ const databasePassword = process.env.DATABASE_PASSWORD;
 const databaseURL = process.env.DATABASE_URL;
 
 if (databaseURL) {
-  mongoose.connect(databaseURL, { useNewUrlParser: true });
+	mongoose.connect(databaseURL, { useNewUrlParser: true });
 } else {
-  if (databaseUser && databasePassword) {
-    mongoose.connect(
-      `mongodb://${databaseUser}:${databasePassword}@${databaseHost}:${databasePort}/${databaseName}?authSource=admin`,
-      { useNewUrlParser: true, useUnifiedTopology: true }
-    );
-  } else {
-    mongoose.connect(
-      `mongodb://${databaseHost}:${databasePort}/${databaseName}?authSource=admin`,
-      { useNewUrlParser: true, useUnifiedTopology: true }
-    );
-  }
+	if (databaseUser && databasePassword) {
+		mongoose.connect(
+			`mongodb://${databaseUser}:${databasePassword}@${databaseHost}:${databasePort}/${databaseName}?authSource=admin`,
+			{ useNewUrlParser: true, useUnifiedTopology: true }
+		);
+	} else {
+		mongoose.connect(
+			`mongodb://${databaseHost}:${databasePort}/${databaseName}?authSource=admin`,
+			{ useNewUrlParser: true, useUnifiedTopology: true }
+		);
+	}
 }
 
 const db = mongoose.connection;

@@ -1,6 +1,6 @@
 /** @format */
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema(
 	{
@@ -18,14 +18,14 @@ const schema = new mongoose.Schema(
 			{
 				type: mongoose.Schema.Types.ObjectId,
 				required: true,
-				ref: 'Roles',
+				ref: "Role",
 			},
 		],
 		skills: [
 			{
 				type: mongoose.Schema.Types.ObjectId,
 				required: true,
-				ref: 'Skills',
+				ref: "Skill",
 			},
 		],
 		workExperiences: [{ type: String, required: false }],
@@ -38,17 +38,18 @@ const schema = new mongoose.Schema(
 				max: { type: Number, min: 0 },
 			},
 		},
+
 		companySize: { type: Number, required: false },
 		typeEmployement: { type: String, required: false },
 		city: {
 			type: mongoose.Schema.Types.ObjectId,
 			required: true,
-			ref: 'City',
+			ref: "City",
 		},
 	},
-	{ timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' } }
+	{ timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }
 );
 
-const User = mongoose.model('User', schema);
+const User = mongoose.model("User", schema);
 
 module.exports = User;

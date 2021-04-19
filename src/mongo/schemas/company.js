@@ -7,7 +7,7 @@ const schema = new mongoose.Schema(
     logo: { type: String, required: true },
     type: { type: String, required: true },
     description: { type: String, required: true, unique: true },
-    skills: [{ type: mongoose.Schema.Types.ObjectId, ref: "Skills" }],
+    skills: [{ type: mongoose.Schema.Types.ObjectId, ref: "Skill" }],
     location: { type: String, required: true },
   },
   { timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }

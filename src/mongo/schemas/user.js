@@ -4,21 +4,26 @@ const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema(
 	{
-		userName: { type: String, required: true },
-		email: { type: String, required: true },
+		name: { type: String, required: true },
+		email: {
+			type: String,
+			required: true,
+			match: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+		},
 		password: {
 			type: String,
 			required: true,
 			match: /(?=.*[a-zA-Z])(?=.*[0-9]+).*/,
 			minlength: 8,
 		},
+		role: { type: String, required: false },
 		bio: { type: String, required: true },
-		photo: { type: String, required: true },
-		roles: [
+		picture: { type: String, required: true },
+		positions: [
 			{
 				type: mongoose.Schema.Types.ObjectId,
 				required: true,
-				ref: "Role",
+				ref: "Position",
 			},
 		],
 		skills: [
@@ -28,7 +33,7 @@ const schema = new mongoose.Schema(
 				ref: "Skill",
 			},
 		],
-		workExperiences: [{ type: String, required: false }],
+		experience: [{ type: String, required: false }],
 		education: { type: String, required: false },
 		languages: [{ type: String, required: true }],
 		salary: {
@@ -39,7 +44,7 @@ const schema = new mongoose.Schema(
 			},
 		},
 
-		companySize: { type: Number, required: false },
+		companySize: { type: String, required: false },
 		typeEmployement: { type: String, required: false },
 		city: {
 			type: mongoose.Schema.Types.ObjectId,

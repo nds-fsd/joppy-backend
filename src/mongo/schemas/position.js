@@ -6,11 +6,10 @@ const bcrypt = require("bcrypt");
 const schema = new mongoose.Schema(
 	{
 		name: { type: String, required: true, unique: true },
-		years: { type: Number, required: false, unique: false },
 	},
 	{ timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }
 );
 
-const Skill = mongoose.model("Skill", schema);
+const Position = mongoose.model("Position", schema);
 
-module.exports = Skill;
+module.exports = Position;

@@ -1,17 +1,20 @@
+/** @format */
+
 const express = require("express");
 const { OfferRouter } = require("./offerRouter");
 const { CityRouter } = require("./cityRouter");
-const { RoleRouter } = require("./roleRouter");
+const { PositionRouter } = require("./positionRouter");
 const { UserRouter } = require("./userRouter");
-const { CompanyRouter } = require("./companyRouter");
 const { SkillRouter } = require("./skillRouter");
 const appRouter = express.Router();
 
 appRouter.use("/city", CityRouter);
-appRouter.use("/role", RoleRouter);
+appRouter.use("/position", PositionRouter);
 appRouter.use("/offer", OfferRouter);
 appRouter.use("/user", UserRouter);
-appRouter.use("/company", CompanyRouter);
 appRouter.use("/skill", SkillRouter);
+
+// appRouter.use("/offer", companyRoleMiddleware, OfferRouter);
+// por ejemplo, no queremos que developers modifiquen o creen offers
 
 module.exports = appRouter;

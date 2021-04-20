@@ -1,11 +1,14 @@
+/** @format */
+
 const express = require("express");
 const { UserController } = require("../controller");
+const { allRoleMiddleware } = require("../middleware/userRoleMiddleware");
 
 const UserRouter = express.Router();
 
 UserRouter.get("/", UserController.findAll);
 
-UserRouter.get("/:id", UserController.findOne);
+UserRouter.get("/:id", allRoleMiddleware, UserController.findOne);
 
 UserRouter.post("/", UserController.create);
 

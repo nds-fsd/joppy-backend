@@ -15,6 +15,12 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
 	const id = req.params.id;
 	User.findById(id)
+		.populate("city")
+		.populate("skills")
+		.populate("tech")
+		.populate("positions")
+		.populate("languages")
+		.exec()
 		.then((user) => {
 			res.status(200).json(user);
 		})

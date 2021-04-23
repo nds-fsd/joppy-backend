@@ -8,7 +8,7 @@ const UserRouter = express.Router();
 
 UserRouter.get("/", UserController.findAll);
 
-UserRouter.get("/:id", allRoleMiddleware, UserController.findOne);
+UserRouter.get("/:id", UserController.findOne);
 
 UserRouter.post("/", UserController.create);
 

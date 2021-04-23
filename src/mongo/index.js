@@ -8,8 +8,6 @@ const Position = require("./schemas/position.js");
 const User = require("./schemas/user.js");
 const Skill = require("./schemas/skill.js");
 const DeveloperSkill = require("./schemas/developerSkill.js");
-const Developer = require("./schemas/developer.js");
-const Company = require("./schemas/company.js");
 const Language = require("./schemas/language.js");
 
 module.exports = {
@@ -19,7 +17,5 @@ module.exports = {
 	Offer,
 	Skill,
 	DeveloperSkill,
-	Developer,
-	Company,
 	Language,
 };

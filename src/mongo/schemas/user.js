@@ -10,8 +10,6 @@ const roles = ["DEVELOPER_ROLE", "COMPANY_ROLE", "ADMIN_ROLE"];
 const schema = new mongoose.Schema(
 	{
 		userName: { type: String, required: true },
-		firstName: { type: String, required: false },
-		lastName: { type: String, required: false },
 		email: { type: String, required: true },
 		password: {
 			type: String,
@@ -20,39 +18,6 @@ const schema = new mongoose.Schema(
 			// minlength: 8,
 		},
 		role: { type: String, required: false, default: roles[0] },
-		bio: { type: String, required: false },
-		photo: { type: String, required: false },
-		positions: [
-			{
-				type: mongoose.Schema.Types.ObjectId,
-				required: false,
-				ref: "Role",
-			},
-		],
-		skills: [
-			{
-				type: mongoose.Schema.Types.ObjectId,
-				required: false,
-				ref: "Skill",
-			},
-		],
-		workExperiences: [{ type: String, required: false }],
-		education: { type: String, required: false },
-		languages: [{ type: String, required: false }],
-		salary: {
-			currency: { type: String },
-			range: {
-				min: { type: Number, min: 0 },
-				max: { type: Number, min: 0 },
-			},
-		},
-		companySize: { type: Number, required: false },
-		typeEmployement: { type: String, required: false },
-		city: {
-			type: mongoose.Schema.Types.ObjectId,
-			required: false,
-			ref: "City",
-		},
 	},
 	{ timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }
 );

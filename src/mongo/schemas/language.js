@@ -10,6 +10,6 @@ const schema = new mongoose.Schema(
 	{ timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }
 );
 
-const Skill = mongoose.model("Skill", schema);
+const Language = mongoose.model("Language", schema);
 
-module.exports = Skill;
+module.exports = Language;

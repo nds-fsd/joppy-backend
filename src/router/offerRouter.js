@@ -1,3 +1,5 @@
+/** @format */
+
 const express = require("express");
 const { OfferController } = require("../controller");
 

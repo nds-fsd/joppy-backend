@@ -21,10 +21,10 @@ AuthRouter.post("/login", (req, res) => {
 			if (!user)
 				return res
 					.status(400)
-					.json({ error: { email: "This email is not registered" } });
+					.send({ error: { email: "This email is not registered" } });
 
 			if (!user.comparePassword(password))
-				return res.status(400).json({ error: { password: "Wrong password" } });
+				return res.status(400).send({ error: { password: "Wrong password" } });
 
 			res.status(200).json({
 				token: user.generateJWT(),

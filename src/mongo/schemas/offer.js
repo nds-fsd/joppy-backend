@@ -13,7 +13,7 @@ const schema = new mongoose.Schema(
 		position: [{ type: mongoose.Schema.Types.ObjectId, ref: "Position" }],
 		skills: [{ type: mongoose.Schema.Types.ObjectId, ref: "Skill" }],
 		description: { type: String, required: true },
-		companyInfo: { type: mongoose.Schema.Types.ObjectId, ref: "Company" },
+		companyInfo: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 	},
 	{ timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }
 );

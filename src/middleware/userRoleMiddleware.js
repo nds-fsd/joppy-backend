@@ -3,7 +3,7 @@
 const roles = ["DEVELOPER_ROLE", "COMPANY_ROLE", "ADMIN_ROLE"];
 
 exports.developerRoleMiddleware = (req, res, next) => {
-	const user = req.user;
+	const user = req.body;
 
 	if (!roles.includes(user.role)) {
 		throw new Error(`Invalid UserRole: ${user.role}`);
@@ -16,7 +16,7 @@ exports.developerRoleMiddleware = (req, res, next) => {
 };
 
 exports.companyRoleMiddleware = (req, res, next) => {
-	const user = req.user;
+	const user = req.body;
 
 	if (!roles.includes(user.role)) {
 		throw new Error(`Invalid UserRole: ${user.role}`);
@@ -29,7 +29,7 @@ exports.companyRoleMiddleware = (req, res, next) => {
 };
 
 exports.adminRoleMiddleware = (req, res, next) => {
-	const user = req.user;
+	const user = req.body;
 
 	if (!roles.includes(user.role)) {
 		throw new Error(`Invalid UserRole: ${user.role}`);
@@ -42,7 +42,8 @@ exports.adminRoleMiddleware = (req, res, next) => {
 };
 
 exports.allRoleMiddleware = (req, res, next) => {
-	const user = req.user;
+	const user = req.body;
+	console.log(user);
 
 	if (!roles.includes(user.role)) {
 		throw new Error(`Invalid UserRole: ${user.role}`);

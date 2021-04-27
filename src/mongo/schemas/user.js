@@ -16,7 +16,7 @@ const schema = new mongoose.Schema(
 			// match: /(?=.*[a-zA-Z])(?=.*[0-9]+).*/,
 			// minlength: 8,
 		},
-		role: { type: String, required: false, default: roles[0] },
+		role: { type: String, required: false },
 		name: { type: String, required: false },
 		bio: { type: String, required: false },
 		photo: [{ type: String, required: false }],

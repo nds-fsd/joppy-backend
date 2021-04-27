@@ -1,5 +1,8 @@
+/** @format */
+
 const express = require("express");
 const { UserController } = require("../controller");
+// const { allRoleMiddleware } = require("../middleware/userRoleMiddleware");
 
 const UserRouter = express.Router();
 

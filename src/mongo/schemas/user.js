@@ -36,13 +36,7 @@ const schema = new mongoose.Schema(
     workExperiences: [{ type: String, required: false }],
     education: { type: String, required: false },
 
-    salary: {
-      currency: { type: String },
-      range: {
-        min: { type: Number, min: 0 },
-        max: { type: Number, min: 0 },
-      },
-    },
+    salary: { type: String, required: false },
     tech: [
       {
         type: mongoose.Schema.Types.ObjectId,

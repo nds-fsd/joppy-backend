@@ -5,8 +5,8 @@ const bcrypt = require("bcrypt");
 
 const schema = new mongoose.Schema(
 	{
-		name: { type: String, required: true, unique: true },
-		years: { type: Number, required: true, unique: true },
+		name: { type: String, required: true },
+		years: { type: Number, required: true },
 	},
 	{ timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }
 );

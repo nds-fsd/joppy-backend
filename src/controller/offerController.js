@@ -107,9 +107,14 @@ exports.searchPagination = (req, res) => {
 
   const skip = page * limit;
 
-  const query = {};
+  const searchTextReg =
+    req.body.search && req.body.search.split(" ").reduce((acc, curr) => `${acc}.*${curr}`, "");
 
-  Offer.find({})
+  const reg = searchTextReg ? new RegExp(searchTextReg, "i") : undefined;
+
+  const query = reg ? { $or: [{ title: { $regex: reg } }] } : {};
+
+  Offer.find(query)
     .limit(limit)
     .skip(skip)
     .sort(sortObject)
@@ -139,11 +144,14 @@ exports.searchText = (req, res) => {
 
 // Search by regexp
 exports.searchReg = (req, res) => {
-  const searchTextReg = req.body.search.split(" ").reduce((acc, curr) => `${acc}.*${curr}`, "");
+  const searchTextReg =
+    req.body.search && req.body.search.split(" ").reduce((acc, curr) => `${acc}.*${curr}`, "");
 
-  const reg = new RegExp(searchTextReg);
+  const reg = searchTextReg ? new RegExp(searchTextReg, "i") : undefined;
 
-  const query2 = { $or: [{ name: { $regex: reg } }, { email: { $regex: reg } }] };
+  const query2 = reg ? { $or: [{ title: { $regex: reg } }] } : {};
+
+  // , { description: { $regex: reg } }
 
   Offer.find(query2)
     .then((objects) => {

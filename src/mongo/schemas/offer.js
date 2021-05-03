@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const schema = new mongoose.Schema(
   {
     title: { type: String, required: true },
+
     salary: { type: String, required: true },
     location: [{ type: mongoose.Schema.Types.ObjectId, ref: "City" }],
     position: [{ type: mongoose.Schema.Types.ObjectId, ref: "Position" }],
@@ -11,6 +12,7 @@ const schema = new mongoose.Schema(
     companyInfo: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     accepted: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     rejected: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+
   },
   { timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }
 );

@@ -9,11 +9,11 @@ const DeveloperSkillController = require("./developerSkillController");
 const LanguageController = require("./languageController");
 
 module.exports = {
-	CityController,
-	OfferController,
-	PositionController,
-	UserController,
-	SkillController,
-	DeveloperSkillController,
-	LanguageController,
+  CityController,
+  OfferController,
+  PositionController,
+  UserController,
+  SkillController,
+  DeveloperSkillController,
+  LanguageController,
 };

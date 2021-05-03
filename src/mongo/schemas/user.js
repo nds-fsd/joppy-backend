@@ -14,35 +14,26 @@ const schema = new mongoose.Schema(
       // match: /(?=.*[a-zA-Z])(?=.*[0-9]+).*/,
       // minlength: 8,
     },
-    role: { type: String, required: false },
+    role: { type: String, required: false, default: roles[0] },
     name: { type: String, required: false },
     bio: { type: String, required: false },
     photo: [{ type: String, required: false }],
     logo: { type: String, required: false },
     positions: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        required: false,
-        ref: "Position",
+        name: { type: mongoose.Schema.Types.ObjectId, required: false, ref: "Position" },
+        years: { type: String, required: false },
       },
     ],
     skills: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        required: false,
-        ref: "DeveloperSkill",
+        name: { type: mongoose.Schema.Types.ObjectId, required: false, ref: "Skill" },
+        years: { type: String, required: false },
       },
     ],
     workExperiences: [{ type: String, required: false }],
     education: { type: String, required: false },
-
-    salary: {
-      currency: { type: String },
-      range: {
-        min: { type: Number, min: 0 },
-        max: { type: Number, min: 0 },
-      },
-    },
+    salary: { type: String, required: false },
     tech: [
       {
         type: mongoose.Schema.Types.ObjectId,

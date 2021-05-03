@@ -34,8 +34,8 @@ exports.findAllOfferIds = (req, res) => {
 exports.findOneOffer = (req, res) => {
   const id = req.params.id;
   Offer.findById(id)
-    .populate("city", "name")
-    .populate("roles")
+    .populate("location", "name")
+    .populate("position")
     .populate("skills")
     .populate({ path: "companyInfo", populate: { path: "skills", model: "Skill" } })
     .exec()

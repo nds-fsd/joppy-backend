@@ -1,7 +1,7 @@
 /** @format */
 
 const { User } = require("../mongo");
-
+const mongoose = require("mongoose");
 exports.findAll = (req, res) => {
   User.find()
     .then((users) => {
@@ -59,10 +59,10 @@ exports.update = (req, res) => {
   const id = req.params.id;
   User.findByIdAndUpdate(id, data)
     .then((user) => {
-      res.status(200).json({ message: "user updated" });
+      res.status(200).json(user);
     })
     .catch((error) => {
-      res.status(500).json({ message: "user not updated" });
+      res.status(500).json({ message: error.message });
     });
 };
 

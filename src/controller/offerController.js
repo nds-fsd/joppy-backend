@@ -34,11 +34,23 @@ exports.findAllOfferIds = (req, res) => {
 exports.findOneOffer = (req, res) => {
   const id = req.params.id;
   Offer.findById(id)
-    .populate("city", "name")
-    .populate("roles")
+    .populate("location", "name")
+    .populate("position")
     .populate("skills")
     .populate({ path: "companyInfo", populate: { path: "skills", model: "Skill" } })
     .exec()
+    .then((offer) => {
+      res.status(200).json(offer);
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+      console.log(error);
+    });
+};
+
+exports.findOneOfferRaw = (req, res) => {
+  const id = req.params.id;
+  Offer.findById(id)
     .then((offer) => {
       res.status(200).json(offer);
     })
@@ -72,11 +84,92 @@ exports.deleteOffer = (req, res) => {
     });
 };
 
+exports.countOffers = (req, res) => {
+  Offer.countDocuments({ companyInfo: req.body.companyInfo })
+    .then((offers) => {
+      res.status(200).json(offers);
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+    });
+};
+
 exports.searchOffer = (req, res) => {
   const query = req.body;
   Offer.find(query)
     .then((offers) => {
       res.status(200).json(offers);
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+    });
+};
+
+exports.searchPagination = (req, res) => {
+  const page = Math.max(0, req.query.page);
+  const limit = req.query.limit ? Math.max(1, req.query.limit) : 5;
+  const sort = req.query.sort;
+  const sortDirection = req.query.dir || "asc";
+
+  let sortObject = {};
+
+  if (sort && sortDirection) {
+    sortObject[sort] = sortDirection === "asc" ? 1 : -1;
+  }
+
+  const skip = page * limit;
+
+  const searchTextReg =
+    req.body.search && req.body.search.split(" ").reduce((acc, curr) => `${acc}.*${curr}`, "");
+
+  const reg = searchTextReg ? new RegExp(searchTextReg, "i") : undefined;
+
+  const query = reg ? { $or: [{ title: { $regex: reg } }] } : {};
+
+  Offer.find({ companyInfo: req.body.companyInfo, ...query })
+    .limit(limit)
+    .skip(skip)
+    .sort(sortObject)
+    .populate("position")
+    .exec()
+    .then((objects) => {
+      res.status(200).json(objects);
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+    });
+};
+
+exports.searchText = (req, res) => {
+  const searchText = Object.keys(req.body).reduce((acc, curr) => `${acc} ${req.body[curr]}`, "");
+
+  const query = { $text: { $search: searchText } };
+
+  Offer.find(query, { score: { $meta: "textScore" } })
+    .sort({ score: { $meta: "textScore" } })
+    .then((objects) => {
+      objects.filter((o) => o.score > 1);
+      res.status(200).json(objects);
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+    });
+};
+
+// Search by regexp
+exports.searchReg = (req, res) => {
+  const searchTextReg =
+    req.body.search && req.body.search.split(" ").reduce((acc, curr) => `${acc}.*${curr}`, "");
+
+  const reg = searchTextReg ? new RegExp(searchTextReg, "i") : undefined;
+
+  const query2 = reg ? { $or: [{ title: { $regex: reg } }] } : {};
+
+  // , { description: { $regex: reg } }
+
+  Offer.find(query2)
+    .then((objects) => {
+      res.status(200).json(objects);
     })
     .catch((error) => {
       res.status(500).json(error);

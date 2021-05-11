@@ -13,6 +13,8 @@ OfferRouter.get("/ids", OfferController.findAllOfferIds);
 
 OfferRouter.get("/:id", OfferController.findOneOffer);
 
+OfferRouter.get("/:id/raw", OfferController.findOneOfferRaw);
+
 OfferRouter.post("/count", OfferController.countOffers);
 
 OfferRouter.post("/search", OfferController.searchPagination);

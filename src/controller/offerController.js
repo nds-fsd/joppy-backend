@@ -48,6 +48,18 @@ exports.findOneOffer = (req, res) => {
     });
 };
 
+exports.findOneOfferRaw = (req, res) => {
+  const id = req.params.id;
+  Offer.findById(id)
+    .then((offer) => {
+      res.status(200).json(offer);
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+      console.log(error);
+    });
+};
+
 exports.updateOffer = (req, res) => {
   const data = req.body;
   const id = req.params.id;
@@ -73,7 +85,7 @@ exports.deleteOffer = (req, res) => {
 };
 
 exports.countOffers = (req, res) => {
-  Offer.countDocuments({})
+  Offer.countDocuments({ companyInfo: req.body.companyInfo })
     .then((offers) => {
       res.status(200).json(offers);
     })
@@ -114,10 +126,12 @@ exports.searchPagination = (req, res) => {
 
   const query = reg ? { $or: [{ title: { $regex: reg } }] } : {};
 
-  Offer.find(query)
+  Offer.find({ companyInfo: req.body.companyInfo, ...query })
     .limit(limit)
     .skip(skip)
     .sort(sortObject)
+    .populate("position")
+    .exec()
     .then((objects) => {
       res.status(200).json(objects);
     })

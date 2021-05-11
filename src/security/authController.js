@@ -11,7 +11,23 @@ const jwtVerifier = (token, callback) => {
   jwt.verify(token, jwtSecret, callback);
 };
 
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  if (token === null) return res.sendStatus(401);
+
+  jwt.verify(token, jwtSecret, (err, payload) => {
+    if (err) return res.status(403).json(err);
+    req.payload = payload;
+    next();
+  });
+};
+
 const AuthRouter = express.Router();
+
+AuthRouter.get("/verify", authenticateToken, (req, res) => {
+  res.status(200).json(req.payload);
+});
 
 AuthRouter.post("/login", (req, res) => {
   const { email, password } = req.body;
@@ -23,8 +39,13 @@ AuthRouter.post("/login", (req, res) => {
       if (!user.comparePassword(password))
         return res.status(400).json({ error: { password: "Wrong password" } });
 
+      let payload = {
+        id: user._id,
+        email: user.email,
+        role: user.role,
+      };
       res.status(200).json({
-        token: user.generateJWT(),
+        token: jwt.sign(payload, jwtSecret),
         user: {
           id: user._id,
           username: user.userName,
@@ -43,10 +64,15 @@ AuthRouter.post("/register", (req, res) => {
     newUser
       .save()
       .then((user) => {
+        let payload = {
+          id: user._id,
+          email: user.email,
+          role: user.role,
+        };
         res
           .status(200)
           .json({
-            token: user.generateJWT(),
+            token: jwt.sign(payload, jwtSecret),
             user: {
               id: user._id,
               email: user.email,

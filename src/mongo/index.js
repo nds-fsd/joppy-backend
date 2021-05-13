@@ -9,13 +9,15 @@ const User = require("./schemas/user.js");
 const Skill = require("./schemas/skill.js");
 const DeveloperSkill = require("./schemas/developerSkill.js");
 const Language = require("./schemas/language.js");
+const OfferStatus = require("./schemas/offerStatus");
 
 module.exports = {
-	User,
-	City,
-	Position,
-	Offer,
-	Skill,
-	DeveloperSkill,
-	Language,
+  User,
+  City,
+  Position,
+  Offer,
+  Skill,
+  DeveloperSkill,
+  Language,
+  OfferStatus,
 };

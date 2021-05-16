@@ -80,3 +80,12 @@ exports.filterOffers = (req, res) => {
       res.status(500).json(error);
     });
 };
+
+exports.showCandidates = (req, res) => {
+  const query = req.body;
+  OfferStatus.find({ offerId: query.offerId }, "userId")
+    .populate("userId")
+    .exec()
+    .then((users) => res.status(200).json(users))
+    .catch((error) => res.status(500).json(error));
+};

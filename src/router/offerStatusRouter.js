@@ -15,6 +15,6 @@ OfferStatusRouter.delete("/:id", OfferStatusController.deleteOfferStatus);
 
 OfferStatusRouter.post("/filter", OfferStatusController.filterOffers);
 
-// OfferStatusRouter.post("/search", OfferStatusController.searchPagination);
+OfferStatusRouter.post("/candidates", OfferStatusController.showCandidates);
 
 module.exports = { OfferStatusRouter };

@@ -32,7 +32,7 @@ const schema = new mongoose.Schema(
       },
     ],
     workExperiences: [{ type: String, required: false }],
-    education: { type: String, required: false },
+    education: [{ type: String, required: false }],
     salary: { type: String, required: false },
     tech: [
       {

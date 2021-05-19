@@ -40,6 +40,18 @@ AuthRouter.get("/verify", authenticateToken, (req, res) => {
     });
 });
 
+AuthRouter.get("/verify/raw", authenticateToken, (req, res) => {
+  const id = req.payload.id;
+  User.findById(id)
+    .then((user) => {
+      res.status(200).json(user);
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+      console.log(error);
+    });
+});
+
 AuthRouter.post("/login", (req, res) => {
   const { email, password } = req.body;
 

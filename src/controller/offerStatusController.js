@@ -83,7 +83,7 @@ exports.filterOffers = (req, res) => {
 
 exports.showCandidates = (req, res) => {
   const query = req.body;
-  OfferStatus.find({ offerId: query.offerId }, "userId")
+  OfferStatus.find({ offerId: query.offerId })
     .populate("userId")
     .exec()
     .then((users) => res.status(200).json(users))

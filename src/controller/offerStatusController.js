@@ -48,10 +48,24 @@ exports.updateOfferStatus = (req, res) => {
       res.status(500).json(error);
     });
 };
-
 exports.deleteOfferStatus = (req, res) => {
   const id = req.params.id;
-  OfferStatus.findByIdAndRemove(id)
+  OfferStatus.findByIdAndDelete(id)
+    .then((offerStatus) => {
+      res.status(200).json({
+        message: `OfferStatus with OfferId: ${offerStatus.offer} has been deleted`,
+        offerStatus,
+      });
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+    });
+};
+
+exports.deleteOfferStatusByQuery = (req, res) => {
+  const query = req.body;
+
+  OfferStatus.deleteOne({ userId: query.userId, offerId: query.offerId, accepted: true })
     .then((offerStatus) => {
       res.status(200).json({ message: `OfferStatus with id: ${offerStatus._id} has been deleted` });
     })
@@ -87,5 +101,29 @@ exports.showCandidates = (req, res) => {
     .populate("userId")
     .exec()
     .then((users) => res.status(200).json(users))
+    .catch((error) => res.status(500).json(error));
+};
+
+exports.showAcceptedOffers = (req, res) => {
+  const query = req.body;
+
+  OfferStatus.find({ userId: query.userId, accepted: true })
+    .then((array) => {
+      return array.map((item) => item.offerId);
+    })
+    .then((arrayIds) =>
+      Offer.find({ _id: { $in: arrayIds } })
+        .populate("location")
+        .populate("skills")
+        .populate("position")
+        .populate("companyInfo")
+        .populate("companyInfo.tech", "skill")
+        .populate("companyInfo.languages", "name")
+        .populate("companyInfo.positions", "name")
+        .exec()
+        .then((offers) => {
+          res.status(200).json(offers);
+        })
+    )
     .catch((error) => res.status(500).json(error));
 };

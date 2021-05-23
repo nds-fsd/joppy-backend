@@ -28,7 +28,7 @@ const AuthRouter = express.Router();
 AuthRouter.get("/verify", authenticateToken, (req, res) => {
   User.findById(req.payload.id)
     .populate("location")
-    .populate("skills.name", "name")
+    .populate("skills.name", "skill")
     .populate("positions.name", "name")
     .populate("languages")
     .exec()

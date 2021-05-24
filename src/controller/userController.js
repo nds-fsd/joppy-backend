@@ -16,7 +16,7 @@ exports.findOne = (req, res) => {
   const id = req.params.id;
   User.findById(id)
     .populate("location")
-    .populate("skills.name", "name")
+    .populate("skills.name", "skill")
     .populate("tech")
     .populate("positions.name", "name")
     .populate("languages")

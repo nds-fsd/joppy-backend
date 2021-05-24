@@ -1,5 +1,6 @@
 const express = require("express");
 const { OfferStatusController } = require("../controller");
+const { OfferStatus } = require("../mongo");
 
 const OfferStatusRouter = express.Router();
 
@@ -11,10 +12,14 @@ OfferStatusRouter.get("/:id", OfferStatusController.findOneOfferStatus);
 
 OfferStatusRouter.put("/:id", OfferStatusController.updateOfferStatus);
 
+OfferStatusRouter.delete("/", OfferStatusController.deleteOfferStatusByQuery);
+
 OfferStatusRouter.delete("/:id", OfferStatusController.deleteOfferStatus);
 
 OfferStatusRouter.post("/filter", OfferStatusController.filterOffers);
 
 OfferStatusRouter.post("/candidates", OfferStatusController.showCandidates);
+
+OfferStatusRouter.post("/acceptedoffers", OfferStatusController.showAcceptedOffers);
 
 module.exports = { OfferStatusRouter };

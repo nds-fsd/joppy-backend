@@ -2,6 +2,8 @@
 
 require("./connection");
 
+// const { upload } = require("./connection");
+
 const Offer = require("./schemas/offer.js");
 const City = require("./schemas/city.js");
 const Position = require("./schemas/position.js");
@@ -10,6 +12,7 @@ const Skill = require("./schemas/skill.js");
 const DeveloperSkill = require("./schemas/developerSkill.js");
 const Language = require("./schemas/language.js");
 const OfferStatus = require("./schemas/offerStatus");
+// const Image = require("./schemas/image.js");
 
 module.exports = {
   User,
@@ -20,4 +23,6 @@ module.exports = {
   DeveloperSkill,
   Language,
   OfferStatus,
+  // Image,
+  // upload,
 };

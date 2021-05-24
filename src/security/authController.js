@@ -28,7 +28,7 @@ const AuthRouter = express.Router();
 AuthRouter.get("/verify", authenticateToken, (req, res) => {
   User.findById(req.payload.id)
     .populate("location")
-    .populate("skills.name", "name")
+    .populate("skills.name", "skill")
     .populate("positions.name", "name")
     .populate("languages")
     .exec()
@@ -37,6 +37,18 @@ AuthRouter.get("/verify", authenticateToken, (req, res) => {
     })
     .catch((error) => {
       res.status(500).json(error);
+    });
+});
+
+AuthRouter.get("/verify/raw", authenticateToken, (req, res) => {
+  const id = req.payload.id;
+  User.findById(id)
+    .then((user) => {
+      res.status(200).json(user);
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+      console.log(error);
     });
 });
 

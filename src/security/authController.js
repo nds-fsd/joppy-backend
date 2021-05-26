@@ -26,7 +26,30 @@ const authenticateToken = (req, res, next) => {
 const AuthRouter = express.Router();
 
 AuthRouter.get("/verify", authenticateToken, (req, res) => {
-  res.status(200).json(req.payload);
+  User.findById(req.payload.id)
+    .populate("location")
+    .populate("skills.name", "skill")
+    .populate("positions.name", "name")
+    .populate("languages")
+    .exec()
+    .then((user) => {
+      res.status(200).json(user);
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+    });
+});
+
+AuthRouter.get("/verify/raw", authenticateToken, (req, res) => {
+  const id = req.payload.id;
+  User.findById(id)
+    .then((user) => {
+      res.status(200).json(user);
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+      console.log(error);
+    });
 });
 
 AuthRouter.post("/login", (req, res) => {
@@ -48,7 +71,7 @@ AuthRouter.post("/login", (req, res) => {
         token: jwt.sign(payload, jwtSecret),
         user: {
           id: user._id,
-          username: user.userName,
+          role: user.role,
           email: user.email,
         },
       });

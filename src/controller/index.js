@@ -7,6 +7,7 @@ const UserController = require("./userController");
 const SkillController = require("./skillController");
 const DeveloperSkillController = require("./developerSkillController");
 const LanguageController = require("./languageController");
+const OfferStatusController = require("./offerStatusController");
 
 module.exports = {
   CityController,
@@ -16,4 +17,5 @@ module.exports = {
   SkillController,
   DeveloperSkillController,
   LanguageController,
+  OfferStatusController,
 };

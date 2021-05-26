@@ -37,7 +37,11 @@ exports.findOneOffer = (req, res) => {
     .populate("location", "name")
     .populate("position")
     .populate("skills")
-    .populate({ path: "companyInfo", populate: { path: "skills", model: "Skill" } })
+    .populate({
+      path: "companyInfo",
+      populate: { path: "tech", model: "Skill" },
+      populate: { path: "location", model: "City" },
+    })
     .exec()
     .then((offer) => {
       res.status(200).json(offer);

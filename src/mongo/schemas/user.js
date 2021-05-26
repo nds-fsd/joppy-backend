@@ -25,14 +25,16 @@ const schema = new mongoose.Schema(
         years: { type: String, required: false },
       },
     ],
+
     skills: [
       {
         name: { type: mongoose.Schema.Types.ObjectId, required: false, ref: "Skill" },
         years: { type: String, required: false },
       },
     ],
+
     workExperiences: [{ type: String, required: false }],
-    education: { type: String, required: false },
+    education: [{ type: String, required: false }],
     salary: { type: String, required: false },
     tech: [
       {

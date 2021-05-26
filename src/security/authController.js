@@ -71,7 +71,7 @@ AuthRouter.post("/login", (req, res) => {
         token: jwt.sign(payload, jwtSecret),
         user: {
           id: user._id,
-          username: user.userName,
+          role: user.role,
           email: user.email,
         },
       });

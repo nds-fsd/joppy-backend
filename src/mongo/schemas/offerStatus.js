@@ -7,8 +7,8 @@ const schema = new mongoose.Schema(
     rejected: { type: Boolean, default: false },
     accepted: { type: Boolean, default: false },
     snoozed: { type: Boolean, default: false },
-    companyRejected: { type: Boolean, default: false },
     companyAccepted: { type: Boolean, default: false },
+    companyRejected: { type: Boolean, default: false },
   },
   { timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }
 );

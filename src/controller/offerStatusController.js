@@ -41,7 +41,6 @@ exports.updateOfferStatus = (req, res) => {
     .then((offerStatus) => {
       res.status(200).json({
         message: `OfferStatus with OfferId: ${offerStatus._id} has been modified`,
-        offerStatus,
       });
     })
     .catch((error) => {
@@ -83,6 +82,8 @@ exports.filterOffers = (req, res) => {
     })
     .then((arrayIds) =>
       Offer.find({ _id: { $nin: arrayIds } }, "_id")
+        .sort({ salary: -1 })
+        .exec()
         .then((offers) => {
           res.status(200).json(offers);
         })
@@ -140,17 +141,31 @@ exports.showSnoozedOffers = (req, res) => {
   const query = req.body;
 
   OfferStatus.find({ userId: query.userId, snoozed: true })
-    .then((array) => {
-      return array.map((item) => item.offerId);
+    .sort({ salary: -1 })
+    .populate("offerId")
+    .populate({
+      path: "offerId",
+      populate: { path: "companyInfo", model: "User" },
     })
-    .then((arrayIds) =>
-      Offer.find({ _id: { $nin: arrayIds } }, "_id")
-        .then((offers) => {
-          res.status(200).json(offers);
-        })
-        .catch((error) => {
-          res.status(500).json(error);
-        })
-    )
+    .populate({
+      path: "offerId",
+      populate: { path: "position", model: "Position" },
+    })
+    .populate({
+      path: "offerId",
+      populate: { path: "skills", model: "Skill" },
+    })
+    .populate({
+      path: "offerId",
+      populate: { path: "location", model: "City" },
+    })
+    .populate({
+      path: "offerId.companyInfo",
+      populate: { path: "tech", model: "Skill" },
+    })
+    .exec()
+    .then((offers) => {
+      res.status(200).json(offers);
+    })
     .catch((error) => res.status(500).json(error));
 };

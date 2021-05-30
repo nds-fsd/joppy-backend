@@ -21,6 +21,7 @@ OfferStatusRouter.post("/filter", OfferStatusController.filterOffers);
 OfferStatusRouter.post("/candidates", OfferStatusController.showCandidates);
 
 OfferStatusRouter.post("/acceptedoffers", OfferStatusController.showAcceptedOffers);
+
 OfferStatusRouter.post("/snoozedoffers", OfferStatusController.showSnoozedOffers);
 
 module.exports = { OfferStatusRouter };

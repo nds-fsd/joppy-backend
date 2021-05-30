@@ -15,6 +15,7 @@ exports.io = configureSockets(server);
 
 const appRouter = require("./router");
 const { AuthRouter, configSecurity } = require("./security/authController");
+const { ImageRouter } = require("./images/imageController");
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 configSecurity(app);
@@ -23,3 +24,4 @@ require("./socket");
 
 app.use("/", appRouter);
 app.use("/", AuthRouter);
+app.use("/", ImageRouter);

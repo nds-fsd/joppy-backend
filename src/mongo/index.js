@@ -1,9 +1,7 @@
 /** @format */
 
 require("./connection");
-
-// const { upload } = require("./connection");
-
+const { upload } = require("./connection.js");
 const Offer = require("./schemas/offer.js");
 const City = require("./schemas/city.js");
 const Position = require("./schemas/position.js");
@@ -14,7 +12,7 @@ const Language = require("./schemas/language.js");
 const OfferStatus = require("./schemas/offerStatus");
 const Chat = require("./schemas/chat");
 const Message = require("./schemas/message");
-// const Image = require("./schemas/image.js");
+const Image = require("./schemas/image");
 
 module.exports = {
   User,
@@ -27,6 +25,6 @@ module.exports = {
   OfferStatus,
   Chat,
   Message,
-  // Image,
-  // upload,
+  Image,
+  upload,
 };

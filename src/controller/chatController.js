@@ -3,7 +3,7 @@ const server = require("../index");
 
 exports.index = (req, res) => {
   Chat.find({ users: req.user.id })
-    .populate("users")
+    .populate("users", "name")
     .then((chats) => {
       res.status(200).json(chats);
     })
@@ -14,6 +14,19 @@ exports.index = (req, res) => {
 
 exports.getOne = (req, res) => {
   Chat.findById(req.params.id)
+    .populate("users", "name")
+    .then((chat) => {
+      res.status(200).json(chat);
+    })
+    .catch((e) => {
+      res.status(500).json({ error: e.message });
+    });
+};
+
+exports.findByUsers = (req, res) => {
+  const userArray = req.body.chatMembers;
+  Chat.find({ users: { $all: [...userArray, req.user.id] } })
+    .populate("users", "name")
     .then((chat) => {
       res.status(200).json(chat);
     })
@@ -25,6 +38,7 @@ exports.getOne = (req, res) => {
 exports.createOne = (req, res) => {
   const authUser = req.user;
   const newChatMembers = req.body.chatMembers;
+
   if (
     newChatMembers === undefined ||
     !newChatMembers instanceof Array ||
@@ -59,7 +73,12 @@ exports.createOne = (req, res) => {
 };
 
 exports.deleteOne = (req, res) => {
-  Chat.deleteOne({ _id: req.params.id })
-    .then((res) => res.status(204))
-    .catch((e) => res.status(500).json({ error: e.message }));
+  const id = req.params.id;
+  Chat.findByIdAndDelete(id)
+    .then((chat) => {
+      res.status(204).json({ message: `chat ${chat} deleted` });
+    })
+    .catch((error) => {
+      res.status(500).json({ error: e.message });
+    });
 };

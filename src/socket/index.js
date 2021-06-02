@@ -13,7 +13,7 @@ const configureSockets = (server) => {
       jwtVerifier(socket.handshake.auth.token, (err, user) => {
         if (err) return next(new Error("Authentication error"));
         socket.user = user;
-        console.log(`User: ${user.name}`);
+        console.log(`User: ${user.email}`);
         next();
       });
     } else {
@@ -24,10 +24,10 @@ const configureSockets = (server) => {
   io.on("connection", (client) => {
     client.emit("connection", "You are now connected");
     client.join(`user-${client.user.id}`);
-    console.log(`User: ${client.user.name} has now its session with id ${client.user.id}`);
+    console.log(`User: ${client.user.email} has now its session with id ${client.user.id}`);
     client.on("join-chat", (chatId) => {
       client.join(`chat-${chatId}`);
-      console.log(`User: ${client.user.name} joined chat ${chatId}`);
+      console.log(`User: ${client.user.email} joined chat ${chatId}`);
     });
   });
 

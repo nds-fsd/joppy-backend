@@ -3,7 +3,7 @@ const server = require("../index");
 //GET ALL BY CHAT
 exports.index = (req, res) => {
   Message.find({ chat: req.params.chatId })
-    .populate("user")
+    .populate("user", "name")
     .then((chats) => {
       res.status(200).json(chats);
     })
@@ -25,7 +25,7 @@ exports.createOne = async (req, res) => {
         message
           .save()
           .then((newMessage) => {
-            Message.populate(newMessage, { path: "user" }, (err, m) => {
+            Message.populate(newMessage, { path: "user", select: "name" }, (err, m) => {
               server.io.to(`chat-${m.chat}`).emit("new-message", m);
               chat.users
                 .filter((u) => u !== req.user.id)

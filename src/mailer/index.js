@@ -66,7 +66,7 @@ MailerRouter.post("/accepted", (req, res) => {
 
 MailerRouter.post("/register", (req, res) => {
   const data = req.body;
-  if (data.email && data.name && data.message) {
+  if (data.email && data.name) {
     const htmlRegister = ejs.render(registerHtml, { data });
     const registerMailData = {
       from: process.env.THE_EMAIL,

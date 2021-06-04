@@ -13,9 +13,13 @@ const server = app.listen(process.env.PORT, () => {
 const appRouter = require("./router");
 const { AuthRouter, configSecurity } = require("./security/authController");
 const { ImageRouter } = require("./images/imageController");
+const mailer = require("./mailer");
+
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 configSecurity(app);
 app.use("/", appRouter);
 app.use("/", AuthRouter);
 app.use("/", ImageRouter);
+app.use("/send-email", mailer);
+app.use(express.static("public"));

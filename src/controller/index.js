@@ -8,6 +8,8 @@ const SkillController = require("./skillController");
 const DeveloperSkillController = require("./developerSkillController");
 const LanguageController = require("./languageController");
 const OfferStatusController = require("./offerStatusController");
+const ChatController = require("./chatController");
+const MessageController = require("./messageController");
 
 module.exports = {
   CityController,
@@ -18,4 +20,6 @@ module.exports = {
   DeveloperSkillController,
   LanguageController,
   OfferStatusController,
+  ChatController,
+  MessageController,
 };

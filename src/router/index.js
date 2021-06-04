@@ -9,6 +9,8 @@ const { SkillRouter } = require("./skillRouter");
 const { DeveloperSkillRouter } = require("./developerSkillRouter");
 const { LanguageRouter } = require("./languageRouter");
 const { OfferStatusRouter } = require("./offerStatusRouter");
+const { ChatRouter } = require("./chatRouter");
+const { MessageRouter } = require("./messageRouter");
 const appRouter = express.Router();
 
 appRouter.use("/city", CityRouter);
@@ -19,6 +21,8 @@ appRouter.use("/skill", SkillRouter);
 appRouter.use("/developerSkill", DeveloperSkillRouter);
 appRouter.use("/language", LanguageRouter);
 appRouter.use("/offerstatus", OfferStatusRouter);
+appRouter.use("/chat", ChatRouter);
+appRouter.use("/message", MessageRouter);
 
 // appRouter.use("/offer", companyRoleMiddleware, OfferRouter);
 // por ejemplo, no queremos que developers modifiquen o creen offers

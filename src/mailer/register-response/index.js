@@ -433,7 +433,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                       <img
                                         align="center"
                                         border="0"
-                                        src="/logo.svg"
+                                        src="https://res.cloudinary.com/devradar/image/upload/v1622994319/image-3_bym5tj.png"
                                         alt="Logo"
                                         title="Logo"
                                         style="
@@ -699,7 +699,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                       <img
                                         align="center"
                                         border="0"
-                                        src=/girl.svg"
+                                        src="https://res.cloudinary.com/devradar/image/upload/v1622994339/image-4_ezgstw.jpg"
                                         alt="girl"
                                         title="girl"
                                         style="

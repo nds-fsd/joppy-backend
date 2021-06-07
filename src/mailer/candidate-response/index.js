@@ -164,15 +164,7 @@ a[x-apple-data-detectors='true'] {
     <tr>
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:0px;font-family:arial,helvetica,sans-serif;" align="left">
         
-<table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr>
-    <td style="padding-right: 0px;padding-left: 0px;" align="center">
-      
-      <img align="center" border="0" src="images/image-1.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 550px;" width="550" class="v-src-width v-src-max-width"/>
-      
-    </td>
-  </tr>
-</table>
+
 
       </td>
     </tr>
@@ -209,7 +201,7 @@ a[x-apple-data-detectors='true'] {
   <tr>
     <td style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="images/image-2.jpeg" alt="Logo" title="Logo" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 56%;max-width: 296.8px;" width="296.8" class="v-src-width v-src-max-width"/>
+      <img align="center" border="0" src="https://res.cloudinary.com/devradar/image/upload/v1622994319/image-3_bym5tj.png" alt="Logo" title="Logo" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 56%;max-width: 296.8px;" width="296.8" class="v-src-width v-src-max-width"/>
       
     </td>
   </tr>
@@ -320,7 +312,7 @@ a[x-apple-data-detectors='true'] {
     <tr>
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <div style="color: #2a00a2; line-height: 300%; text-align: left; word-wrap: break-word;">
+  <div style="color: #2a00a2; line-height: 300%; text-align: center; word-wrap: break-word;">
     <p style="font-size: 14px; line-height: 300%;"><span style="font-size: 26px; line-height: 78px;"><strong><span style="line-height: 78px; font-size: 26px;"><%= data.name %></span></strong></span></p>
   </div>
 
@@ -370,7 +362,9 @@ a[x-apple-data-detectors='true'] {
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="color: #2a00a2; line-height: 140%; text-align: center; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 22px; line-height: 30.8px;"><%= data.title %></span></p>
+    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 24px; line-height: 30.8px; font-weight: 600;"><%= data.title %></span></p>
+    <br>
+    </br>
   </div>
 
       </td>
@@ -491,15 +485,7 @@ a[x-apple-data-detectors='true'] {
     <tr>
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:0px;font-family:arial,helvetica,sans-serif;" align="left">
         
-<table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr>
-    <td style="padding-right: 0px;padding-left: 0px;" align="center">
-      
-      <img align="center" border="0" src="images/image-3.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 550px;" width="550" class="v-src-width v-src-max-width"/>
-      
-    </td>
-  </tr>
-</table>
+
 
       </td>
     </tr>

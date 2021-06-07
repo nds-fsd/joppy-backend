@@ -18,7 +18,7 @@ ImageRouter.post("/upload", async (req, res) => {
   const id = req.params.id;
   try {
     const uploadedResponse = await cloudinary.uploader.upload(data, { upload_preset: "wchygywm" });
-    res.status(200).json(uploadedResponse.url);
+    res.status(200).json(uploadedResponse);
     console.log(uploadedResponse.url);
   } catch (error) {
     res.status(500).json(error);

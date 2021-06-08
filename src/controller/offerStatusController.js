@@ -40,8 +40,7 @@ exports.updateOfferStatus = (req, res) => {
   OfferStatus.findByIdAndUpdate(id, data)
     .then((offerStatus) => {
       res.status(200).json({
-        message: `OfferStatus with OfferId: ${offerStatus.offer} has been modified`,
-        offerStatus,
+        message: `OfferStatus with OfferId: ${offerStatus._id} has been modified`,
       });
     })
     .catch((error) => {
@@ -62,12 +61,12 @@ exports.deleteOfferStatus = (req, res) => {
     });
 };
 
-exports.deleteOfferStatusByQuery = (req, res) => {
+exports.findAcceptedOfferStatus = (req, res) => {
   const query = req.body;
 
-  OfferStatus.deleteOne({ userId: query.userId, offerId: query.offerId, accepted: true })
+  OfferStatus.findOne({ userId: query.userId, offerId: query.offerId, accepted: true })
     .then((offerStatus) => {
-      res.status(200).json({ message: `OfferStatus with id: ${offerStatus._id} has been deleted` });
+      res.status(200).json(offerStatus);
     })
     .catch((error) => {
       res.status(500).json(error);
@@ -83,6 +82,8 @@ exports.filterOffers = (req, res) => {
     })
     .then((arrayIds) =>
       Offer.find({ _id: { $nin: arrayIds } }, "_id")
+        .sort({ salary: -1 })
+        .exec()
         .then((offers) => {
           res.status(200).json(offers);
         })
@@ -108,22 +109,63 @@ exports.showAcceptedOffers = (req, res) => {
   const query = req.body;
 
   OfferStatus.find({ userId: query.userId, accepted: true })
-    .then((array) => {
-      return array.map((item) => item.offerId);
+    .populate("offerId")
+    .populate({
+      path: "offerId",
+      populate: { path: "companyInfo", model: "User" },
     })
-    .then((arrayIds) =>
-      Offer.find({ _id: { $in: arrayIds } })
-        .populate("location")
-        .populate("skills")
-        .populate("position")
-        .populate("companyInfo")
-        .populate("companyInfo.tech", "skill")
-        .populate("companyInfo.languages", "name")
-        .populate("companyInfo.positions", "name")
-        .exec()
-        .then((offers) => {
-          res.status(200).json(offers);
-        })
-    )
+    .populate({
+      path: "offerId",
+      populate: { path: "position", model: "Position" },
+    })
+    .populate({
+      path: "offerId",
+      populate: { path: "skills", model: "Skill" },
+    })
+    .populate({
+      path: "offerId",
+      populate: { path: "location", model: "City" },
+    })
+    .populate({
+      path: "offerId.companyInfo",
+      populate: { path: "tech", model: "Skill" },
+    })
+    .exec()
+    .then((offers) => {
+      res.status(200).json(offers);
+    })
+    .catch((error) => res.status(500).json(error));
+};
+
+exports.showSnoozedOffers = (req, res) => {
+  const query = req.body;
+
+  OfferStatus.find({ userId: query.userId, snoozed: true })
+    .sort({ salary: -1 })
+    .populate("offerId")
+    .populate({
+      path: "offerId",
+      populate: { path: "companyInfo", model: "User" },
+    })
+    .populate({
+      path: "offerId",
+      populate: { path: "position", model: "Position" },
+    })
+    .populate({
+      path: "offerId",
+      populate: { path: "skills", model: "Skill" },
+    })
+    .populate({
+      path: "offerId",
+      populate: { path: "location", model: "City" },
+    })
+    .populate({
+      path: "offerId.companyInfo",
+      populate: { path: "tech", model: "Skill" },
+    })
+    .exec()
+    .then((offers) => {
+      res.status(200).json(offers);
+    })
     .catch((error) => res.status(500).json(error));
 };

@@ -12,7 +12,7 @@ OfferStatusRouter.get("/:id", OfferStatusController.findOneOfferStatus);
 
 OfferStatusRouter.put("/:id", OfferStatusController.updateOfferStatus);
 
-OfferStatusRouter.delete("/", OfferStatusController.deleteOfferStatusByQuery);
+OfferStatusRouter.post("/search", OfferStatusController.findAcceptedOfferStatus);
 
 OfferStatusRouter.delete("/:id", OfferStatusController.deleteOfferStatus);
 
@@ -21,5 +21,7 @@ OfferStatusRouter.post("/filter", OfferStatusController.filterOffers);
 OfferStatusRouter.post("/candidates", OfferStatusController.showCandidates);
 
 OfferStatusRouter.post("/acceptedoffers", OfferStatusController.showAcceptedOffers);
+
+OfferStatusRouter.post("/snoozedoffers", OfferStatusController.showSnoozedOffers);
 
 module.exports = { OfferStatusRouter };

@@ -45,13 +45,28 @@ exports.create = (req, res) => {
 
 exports.delete = (req, res) => {
   const id = req.params.id;
-  User.findByIdAndDelete(id)
-    .then((user) => {
-      res.status(200).json({ message: "user deleted" });
+  User.findByIdAndDelete(id).then((user) => {
+    res.status(200).json({ message: "user deleted" });
+  });
+  const gfs = new mongoose.mongo.GridFSBucket(mongoose.connection.db, {
+    bucketName: "uploads",
+  });
+  Promise.all(
+    user.images.map((img) => {
+      return new Promise((resolve, reject) => {
+        const id = mongoose.Types.ObjectId(img);
+        gfs.delete(id, (error, result) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(result);
+          }
+        });
+      });
     })
-    .catch((error) => {
-      res.status(500).json({ message: "user not deleted" });
-    });
+  ).then(() => {
+    return res.status(200).send();
+  });
 };
 
 exports.update = (req, res) => {

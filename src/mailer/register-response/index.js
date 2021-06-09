@@ -202,7 +202,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                         "
                       ><!--<![endif]-->
                         <table
-                          style="font-family: arial, helvetica, sans-serif"
+                          style="font-family: arial"
                           role="presentation"
                           cellpadding="0"
                           cellspacing="0"
@@ -217,7 +217,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                   overflow-wrap: break-word;
                                   word-break: break-word;
                                   padding: 10px;
-                                  font-family: arial, helvetica, sans-serif;
+                                  font-family: arial;
                                 "
                                 align="left"
                               >
@@ -316,7 +316,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                         "
                       ><!--<![endif]-->
                         <table
-                          style="font-family: arial, helvetica, sans-serif"
+                          style="font-family: arial"
                           role="presentation"
                           cellpadding="0"
                           cellspacing="0"
@@ -331,7 +331,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                   overflow-wrap: break-word;
                                   word-break: break-word;
                                   padding: 0px;
-                                  font-family: arial, helvetica, sans-serif;
+                                  font-family: arial;
                                 "
                                 align="left"
                               >
@@ -405,7 +405,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                       ><!--<![endif]-->
                         <table
                           id="u_content_image_1"
-                          style="font-family: arial, helvetica, sans-serif"
+                          style="font-family: arial"
                           role="presentation"
                           cellpadding="0"
                           cellspacing="0"
@@ -420,7 +420,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                   overflow-wrap: break-word;
                                   word-break: break-word;
                                   padding: 0px 10px 15px;
-                                  font-family: arial, helvetica, sans-serif;
+                                  font-family: arial;
                                 "
                                 align="left"
                               >
@@ -514,7 +514,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                         "
                       ><!--<![endif]-->
                         <table
-                          style="font-family: arial, helvetica, sans-serif"
+                          style="font-family: arial"
                           role="presentation"
                           cellpadding="0"
                           cellspacing="0"
@@ -529,7 +529,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                   overflow-wrap: break-word;
                                   word-break: break-word;
                                   padding: 10px;
-                                  font-family: arial, helvetica, sans-serif;
+                                  font-family: arial;
                                 "
                                 align="left"
                               >
@@ -575,7 +575,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
 
                         <table
                           id="u_content_heading_1"
-                          style="font-family: arial, helvetica, sans-serif"
+                          style="font-family: arial"
                           role="presentation"
                           cellpadding="0"
                           cellspacing="0"
@@ -590,7 +590,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                   overflow-wrap: break-word;
                                   word-break: break-word;
                                   padding: 30px 10px 10px;
-                                  font-family: arial, helvetica, sans-serif;
+                                  font-family: arial;
                                 "
                                 align="left"
                               >
@@ -603,7 +603,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                     text-align: center;
                                     word-wrap: break-word;
                                     font-weight: normal;
-                                    font-family: comic sans ms, sans-serif;
+                                    font-family: arial;
                                     font-size: 35px;
                                   "
                                 >
@@ -671,7 +671,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                         "
                       ><!--<![endif]-->
                         <table
-                          style="font-family: arial, helvetica, sans-serif"
+                          style="font-family: arial"
                           role="presentation"
                           cellpadding="0"
                           cellspacing="0"
@@ -686,7 +686,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                   overflow-wrap: break-word;
                                   word-break: break-word;
                                   padding: 0px;
-                                  font-family: arial, helvetica, sans-serif;
+                                  font-family: arial;
                                 "
                                 align="left"
                               >
@@ -726,7 +726,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                         </table>
 
                         <table
-                          style="font-family: arial, helvetica, sans-serif"
+                          style="font-family: arial"
                           role="presentation"
                           cellpadding="0"
                           cellspacing="0"
@@ -741,7 +741,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                   overflow-wrap: break-word;
                                   word-break: break-word;
                                   padding: 10px;
-                                  font-family: arial, helvetica, sans-serif;
+                                  font-family: arial;
                                 "
                                 align="left"
                               >
@@ -758,7 +758,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                         style="
                                           font-size: 16px;
                                           line-height: 24px;
-                                          font-family: Montserrat, sans-serif;
+                                          font-family: arial;
                                         "
                                         >Please verify your email address
                                       </span></strong
@@ -770,7 +770,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                         style="
                                           font-size: 16px;
                                           line-height: 24px;
-                                          font-family: Montserrat, sans-serif;
+                                          font-family: arial;
                                         "
                                         >to find your ideal job!</span
                                       ></strong
@@ -782,7 +782,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                       ><strong
                                         ><span
                                           style="
-                                            font-family: Montserrat, sans-serif;
+                                            font-family: arial;
                                             line-height: 30px;
                                             font-size: 20px;
                                           "
@@ -798,7 +798,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                         </table>
 
                         <table
-                          style="font-family: arial, helvetica, sans-serif"
+                          style="font-family: arial"
                           role="presentation"
                           cellpadding="0"
                           cellspacing="0"
@@ -813,19 +813,19 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                   overflow-wrap: break-word;
                                   word-break: break-word;
                                   padding: 30px 10px 40px;
-                                  font-family: arial, helvetica, sans-serif;
+                                  font-family: arial;
                                 "
                                 align="left"
                               >
                                 <div align="center">
-                                  <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:arial,helvetica,sans-serif;"><tr><td style="font-family:arial,helvetica,sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:36px; v-text-anchor:middle; width:268px;" arcsize="11%" strokecolor="#5d49d6" strokeweight="2px" fillcolor="#ffffff"><w:anchorlock/><center style="color:#5d49d6;font-family:arial,helvetica,sans-serif;"><![endif]-->
+                                  <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:arial;"><tr><td style="font-family:arial;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:36px; v-text-anchor:middle; width:268px;" arcsize="11%" strokecolor="#5d49d6" strokeweight="2px" fillcolor="#ffffff"><w:anchorlock/><center style="color:#5d49d6;font-family:arial;"><![endif]-->
                                   <a
                                     href=""
                                     target="_blank"
                                     style="
                                       box-sizing: border-box;
                                       display: inline-block;
-                                      font-family: arial, helvetica, sans-serif;
+                                      font-family: arial;
                                       text-decoration: none;
                                       -webkit-text-size-adjust: none;
                                       text-align: center;
@@ -924,7 +924,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                         "
                       ><!--<![endif]-->
                         <table
-                          style="font-family: arial, helvetica, sans-serif"
+                          style="font-family: arial"
                           role="presentation"
                           cellpadding="0"
                           cellspacing="0"
@@ -939,7 +939,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                   overflow-wrap: break-word;
                                   word-break: break-word;
                                   padding: 40px 10px 0px;
-                                  font-family: arial, helvetica, sans-serif;
+                                  font-family: arial;
                                 "
                                 align="left"
                               >
@@ -952,7 +952,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                     text-align: center;
                                     word-wrap: break-word;
                                     font-weight: normal;
-                                    font-family: 'Montserrat', sans-serif;
+                                    font-family: arial;
                                     font-size: 22px;
                                   "
                                 >
@@ -964,7 +964,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                         </table>
 
                         <table
-                          style="font-family: arial, helvetica, sans-serif"
+                          style="font-family: arial"
                           role="presentation"
                           cellpadding="0"
                           cellspacing="0"
@@ -979,7 +979,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                   overflow-wrap: break-word;
                                   word-break: break-word;
                                   padding: 10px;
-                                  font-family: arial, helvetica, sans-serif;
+                                  font-family: arial;
                                 "
                                 align="left"
                               >
@@ -1024,7 +1024,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                         </table>
 
                         <table
-                          style="font-family: arial, helvetica, sans-serif"
+                          style="font-family: arial"
                           role="presentation"
                           cellpadding="0"
                           cellspacing="0"
@@ -1039,7 +1039,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                   overflow-wrap: break-word;
                                   word-break: break-word;
                                   padding: 10px 10px 0px;
-                                  font-family: arial, helvetica, sans-serif;
+                                  font-family: arial;
                                 "
                                 align="left"
                               >
@@ -1055,7 +1055,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                     <li style="font-size: 14px; line-height: 25.2px">
                                       <span
                                         style="
-                                          font-family: Montserrat, sans-serif;
+                                          font-family: arial;
                                           font-size: 14px;
                                           line-height: 25.2px;
                                         "
@@ -1066,7 +1066,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                     <li style="font-size: 14px; line-height: 25.2px">
                                       <span
                                         style="
-                                          font-family: Montserrat, sans-serif;
+                                          font-family: arial;
                                           font-size: 14px;
                                           line-height: 25.2px;
                                         "
@@ -1077,7 +1077,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                     <li style="font-size: 14px; line-height: 25.2px">
                                       <span
                                         style="
-                                          font-family: Montserrat, sans-serif;
+                                          font-family: arial;
                                           font-size: 14px;
                                           line-height: 25.2px;
                                         "
@@ -1088,7 +1088,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                     <li style="font-size: 14px; line-height: 25.2px">
                                       <span
                                         style="
-                                          font-family: Montserrat, sans-serif;
+                                          font-family: arial;
                                           font-size: 14px;
                                           line-height: 25.2px;
                                         "
@@ -1104,7 +1104,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                         </table>
 
                         <table
-                          style="font-family: arial, helvetica, sans-serif"
+                          style="font-family: arial"
                           role="presentation"
                           cellpadding="0"
                           cellspacing="0"
@@ -1119,7 +1119,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                   overflow-wrap: break-word;
                                   word-break: break-word;
                                   padding: 10px 10px 30px;
-                                  font-family: arial, helvetica, sans-serif;
+                                  font-family: arial;
                                 "
                                 align="left"
                               >
@@ -1190,7 +1190,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                         "
                       ><!--<![endif]-->
                         <table
-                          style="font-family: arial, helvetica, sans-serif"
+                          style="font-family: arial"
                           role="presentation"
                           cellpadding="0"
                           cellspacing="0"
@@ -1205,7 +1205,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                   overflow-wrap: break-word;
                                   word-break: break-word;
                                   padding: 0px;
-                                  font-family: arial, helvetica, sans-serif;
+                                  font-family: arial;
                                 "
                                 align="left"
                               >
@@ -1279,7 +1279,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                         "
                       ><!--<![endif]-->
                         <table
-                          style="font-family: arial, helvetica, sans-serif"
+                          style="font-family: arial"
                           role="presentation"
                           cellpadding="0"
                           cellspacing="0"
@@ -1294,7 +1294,7 @@ const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "h
                                   overflow-wrap: break-word;
                                   word-break: break-word;
                                   padding: 10px;
-                                  font-family: arial, helvetica, sans-serif;
+                                  font-family: arial;
                                 "
                                 align="left"
                               >

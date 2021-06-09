@@ -8,9 +8,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// app.use(express.json({ limit: "50mb" }));
-// app.use(express.urlencoded({ limit: "50mb", extended: true }));
-
 const ImageRouter = new express.Router();
 
 ImageRouter.post("/upload", async (req, res) => {
